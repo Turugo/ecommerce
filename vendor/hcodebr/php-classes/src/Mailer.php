@@ -34,7 +34,7 @@ class Mailer{
 		//Create a new PHPMailer instance
 		$this->mail = new \PHPMailer;
 		//Tell PHPMailer to use SMTP
-		$mail->isSMTP();
+		$this->mail->isSMTP();
 		//Enable SMTP debugging
 		// 0 = off (for production use)
 		// 1 = client messages
