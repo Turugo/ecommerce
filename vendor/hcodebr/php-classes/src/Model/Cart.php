@@ -119,7 +119,7 @@ class Cart extends Model {
 
 		$sql = new Sql();
 
-		$sql = query("INSERT INTO tb_cartsproducts (idcart, idproduct) VALUES(:idcart, :idproduct)", [
+		$sql->query("INSERT INTO tb_cartsproducts (idcart, idproduct) VALUES(:idcart, :idproduct)", [
 			':idcart'=>$this->getidcart(),
 			':idproduct'=>$product->getidproduct()
 		]);
@@ -154,11 +154,11 @@ class Cart extends Model {
 		$sql = new Sql();
 
 		$rows = $sql->select("
-			SELECT b.idproduct, b.desproduct, b.vlprice, b.vlwidth, b.vlheight, b.vllenght, b.weight, b.desurl, COUNT(*) AS nrqtd, SUM(b.vlprice) AS vltotal
+			SELECT b.idproduct, b.desproduct, b.vlprice, b.vlwidth, b.vlheight, b.vllength, b.vlweight, b.desurl, COUNT(*) AS nrqtd, SUM(b.vlprice) AS vltotal
 			FROM tb_cartsproducts a
 		 	INNER JOIN tb_products b ON a.idproduct = b.idproduct 
 		 	WHERE a.idcart = :idcart AND a.dtremoved IS NULL 
-		 	GROUP BY b.idproduct, b.desproduct, b.vlprice, b.vlwidth, b.vlheight, b.vllenght, b.weight, b.desurl 
+		 	GROUP BY b.idproduct, b.desproduct, b.vlprice, b.vlwidth, b.vlheight, b.vllength, b.vlweight, b.desurl 
 		 	ORDER BY b.desproduct
 		", [
 			':idcart'=>$this->getidcart()
