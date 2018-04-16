@@ -126,7 +126,7 @@ class Cart extends Model {
 
 	}
 
-	public function revomeProduct(Product $product, $all = false)
+	public function removeProduct(Product $product, $all = false)
 	{
 
 		$sql = new Sql();
