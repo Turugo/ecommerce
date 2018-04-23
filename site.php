@@ -131,7 +131,7 @@ $app->post("/cart/freight", function(){
 
 	$cart->setFreight($_POST['zipcode']);
 
-	header("Location : /cart");
+	header("Location: /cart");
 	exit;
 
 });
