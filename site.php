@@ -171,6 +171,7 @@ $app->get("/checkout", function(){
     if (!$address->getdesstate()) $address->setdesstate('');
     if (!$address->getdescountry()) $address->setdescountry('');
     if (!$address->getdeszipcode()) $address->setdeszipcode('');
+    if (!$address->getdesnumber()) $address->setdesnumber('');
 
 	$page = new Page();
 
