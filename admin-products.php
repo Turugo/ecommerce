@@ -13,11 +13,11 @@ $app->get("/admin/products", function(){
 
 	if ($search != '') {
 
-		$pagination = product::getPageSearch($search, $page);
+		$pagination = Product::getPageSearch($search, $page);
 
 	} else {
 
-		$pagination = product::getPage($page);
+		$pagination = Product::getPage($page);
 
 	}
 
@@ -34,8 +34,6 @@ $app->get("/admin/products", function(){
 			'text'=>$x+1
 		]);
 	}
-
-	$products = Product::listAll();
 
 	$page = new PageAdmin();
 
